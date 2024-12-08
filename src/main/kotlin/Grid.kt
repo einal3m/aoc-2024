@@ -40,4 +40,14 @@ class Grid<T> {
             println(row)
         }
     }
+
+    fun print(widthRange: IntRange, heightRange: IntRange) {
+        for (y in heightRange) {
+            var row = ""
+            for (x in widthRange) {
+                row += grid[Point(x,y)] ?: "."
+            }
+            println(row)
+        }
+    }
 }

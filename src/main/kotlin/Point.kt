@@ -7,6 +7,10 @@ data class Point(val x: Int, val y: Int) {
         return Point(x + other.x, y + other.y)
     }
 
+    operator fun minus(other: Point): Point {
+        return Point(x - other.x, y - other.y)
+    }
+
     fun code(): Char {
         return when (this) {
             Direction.NORTH -> 'N'
