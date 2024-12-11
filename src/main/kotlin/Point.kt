@@ -27,7 +27,8 @@ object Direction {
     val SOUTH = Point(0, 1)
     val EAST = Point(1, 0)
     val WEST = Point(-1, 0)
-    val ALL_CODES = listOf(NORTH, SOUTH, EAST, WEST).map{it.code()}
+    val ALL_DIRS = listOf(NORTH, SOUTH, EAST, WEST)
+    val ALL_CODES = ALL_DIRS.map{it.code()}
 
     fun turnRight(direction: Point): Point {
         return when (direction) {
