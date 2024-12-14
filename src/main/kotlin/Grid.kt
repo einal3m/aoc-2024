@@ -5,6 +5,10 @@ class Grid<T> {
         grid[point] = value
     }
 
+    fun valueAt(p: Point): T? {
+        return grid[p]
+    }
+
     fun valueAt(x: Int, y: Int): T? {
         return grid[Point(x, y)]
     }
@@ -35,7 +39,12 @@ class Grid<T> {
         for (y in heightRange()) {
             var row = ""
             for (x in widthRange()) {
-                row += grid[Point(x,y)] ?: "."
+                val value = grid[Point(x,y)]
+                if (value is MutableList<*>) {
+                    row += value.size
+                } else {
+                    row += grid[Point(x, y)] ?: "."
+                }
             }
             println(row)
         }
@@ -45,7 +54,12 @@ class Grid<T> {
         for (y in heightRange) {
             var row = ""
             for (x in widthRange) {
-                row += grid[Point(x,y)] ?: "."
+                val value = grid[Point(x,y)]
+                if (value is MutableList<*>) {
+                    row += value.size
+                } else {
+                    row += grid[Point(x, y)] ?: "."
+                }
             }
             println(row)
         }
