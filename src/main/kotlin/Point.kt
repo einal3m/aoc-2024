@@ -11,6 +11,10 @@ data class Point(val x: Int, val y: Int) {
         return Point(x - other.x, y - other.y)
     }
 
+    operator fun unaryMinus(): Point {
+        return Point(-x, -y)
+    }
+
     fun code(): Char {
         return when (this) {
             Direction.NORTH -> 'N'
@@ -36,6 +40,15 @@ object Direction {
             EAST -> SOUTH
             SOUTH -> WEST
             else -> NORTH
+        }
+    }
+
+    fun turnLeft(direction: Point): Point {
+        return when (direction) {
+            NORTH -> WEST
+            EAST -> NORTH
+            SOUTH -> EAST
+            else -> SOUTH
         }
     }
 }
